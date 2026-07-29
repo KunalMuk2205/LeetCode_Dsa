@@ -1,9 +1,9 @@
 class Solution {
-
     ArrayList<List<Integer>> ans = new ArrayList<>();
     ArrayList<Integer> current = new ArrayList<>();
 
     public List<List<Integer>> subsets(int[] nums) {
+        int n = nums.length;
         solve(0,nums);
         return ans;
     }
@@ -13,8 +13,9 @@ class Solution {
             ans.add(new ArrayList<>(current));
             return;
         }
+
         current.add(nums[index]);
-        solve(index+1,nums);
+        solve(index+1, nums);
 
         current.remove(current.size()-1);
 
