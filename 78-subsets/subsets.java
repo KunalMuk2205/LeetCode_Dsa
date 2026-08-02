@@ -1,24 +1,24 @@
 class Solution {
-    ArrayList<List<Integer>> ans = new ArrayList<>();
-    ArrayList<Integer> current = new ArrayList<>();
+    List<List<Integer>> ans = new ArrayList<>();
+    List<Integer> current = new ArrayList<>();
 
     public List<List<Integer>> subsets(int[] nums) {
         int n = nums.length;
-        solve(0,nums);
+        int index = 0;
+        
+        solve(0, nums, n);
         return ans;
     }
-
-    public void solve(int index, int nums[]){
-        if(index == nums.length){
-            ans.add(new ArrayList<>(current));
+    public void solve(int index, int arr[], int n){
+        if(index>=n){
+            ans.add(new ArrayList<Integer>(current));
             return;
         }
-
-        current.add(nums[index]);
-        solve(index+1, nums);
+        current.add(arr[index]);
+        solve(index+1, arr, n);
 
         current.remove(current.size()-1);
 
-        solve(index+1,nums);
+        solve(index+1, arr, n);
     }
 }
