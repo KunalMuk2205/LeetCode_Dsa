@@ -5,7 +5,8 @@ class Solution {
         int n = candidates.length;
 
         solve(0,n,candidates,target,ans,list);
-        return ans;
+        List<List<Integer>> finalAns = new ArrayList<>(ans);
+        return finalAns;
     }
     public void solve(int i, int n, int candidates[], int target, List<List<Integer>> ans, ArrayList<Integer> list){
         if(i==n){
